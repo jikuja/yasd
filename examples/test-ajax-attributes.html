@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="display: none">
+<xmp id="test2772738" page="foo.md">
+</xmp>
+
+<xmp page="bar.md">
+# Test for other tag
+</xmp>
+
+<xmp id="foobatkfd">
+# Test for third tag
+</xmp>
+
+<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+<!-- use runtime thingy to detect which one is selected -->
+<script src="https://jonschlinkert.github.io/remarkable/dist/remarkable.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.js"></script>
+
+<!-- our code -->
+<script src="../src/strapdown.js"></script>
+
+<script>
+    $( document ).ready(function() {
+        $("body").hide();
+        $("xmp").strapdown({
+            allDone: function() {
+                $("body").show();
+            }
+        });
+    });
+</script>
+</body>
+</html>
