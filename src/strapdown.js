@@ -55,8 +55,12 @@
         var name = $.getQueryParam(opts.searchStringKey);
 
         if (!name) {
-            console.error("No " + opts.searchStringKey + " found in URL search string");
-            return;
+            console.warn("No " + opts.searchStringKey + " found in URL search string");
+            if (opts.defaultPage) {
+                url = opts.defaultPage + ".md";
+            } else {
+                return;
+            }
         } else {
             url = name + ".md";
         }
@@ -145,6 +149,7 @@
         attributeForURL: "page",
         elemDone: null,
         allDone: null,
+        defaultPage: null,
         debug: true
     };
 
